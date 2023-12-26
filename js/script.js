@@ -62,8 +62,8 @@ let rel = () => {
   }, 15000);
 }
 
-$('.argv').focus( () => {
-  $(this).removeClass('err');
+$('.argv').on('focus', () => {
+  $('.argv').removeClass('err');
 });
 
 $('#btn-cont').on('click', () => {
