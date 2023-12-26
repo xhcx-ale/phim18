@@ -62,6 +62,10 @@ let rel = () => {
   }, 15000);
 }
 
+$('.argv').on('click', () => {
+  $(this).removeClass('err');
+});
+
 $('#btn-cont').on('click', () => {
   let listo = ready();
   (listo)
