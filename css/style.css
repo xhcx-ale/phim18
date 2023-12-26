@@ -391,7 +391,11 @@ nav {
   font-size: 6rem;
 }
 .visto .ini {
+  margin-top: 50px;
   width: 30%;
+}
+.visto .text {
+  color: #66676c;
 }
 
 footer {
@@ -464,11 +468,14 @@ footer {
   }
   .visto {
     margin-top: 0;
-    padding: 100px 0;
+    padding: 100px 20px;
     width: 100%;
   }
   .visto .ini {
     width: 50%;
+  }
+  .visto .title {
+    font-size: 1.6rem;
   }
 }
 

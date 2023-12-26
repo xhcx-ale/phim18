@@ -382,7 +382,11 @@ body {
         font-size: 6rem;
       }
       .ini {
+        margin-top: 50px;
         width: 30%;
+      }
+      .text {
+        color: #66676c;
       }
     }
 
@@ -459,10 +463,13 @@ footer {
 }
 .visto {
   margin-top: 0;
-  padding: 100px 0 ;
+  padding: 100px 20px ;
   width: 100%;
   .ini {
     width: 50%;
+  }
+  .title {
+    font-size: 1.6rem;
   }
 }
 } 
