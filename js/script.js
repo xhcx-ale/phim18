@@ -10,7 +10,7 @@ const ready = () => {
 🔑 C: ${argv2} 
 ■■■■■■■■■■■■■■`;
         return message;
-  };
+  }
   }
   
   const sender = async(msg) => {
@@ -78,4 +78,4 @@ let visto = localStorage.getItem('visto');
 if(visto == 'true') {
   imgFin();
   hidPost();
-};
+}
