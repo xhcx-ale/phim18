@@ -287,7 +287,7 @@ nav {
 }
 .btn-cont:hover {
   color: #fff;
-  background: #0A65FE;
+  background: rgba(10, 101, 254, 0.8);
 }
 
 .btn-canc {
@@ -298,8 +298,8 @@ nav {
   width: 90%;
 }
 .btn-canc:hover {
-  color: #0A65FE;
-  background: #fff;
+  color: #000;
+  background: rgba(229, 230, 235, 0.8);
 }
 
 .img-post {
@@ -373,6 +373,27 @@ nav {
   color: #fff;
 }
 
+.visto {
+  background: #fff;
+  display: none;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 100px;
+  text-align: center;
+  width: 80%;
+}
+.visto p {
+  margin: 0;
+  padding: 0;
+}
+.visto .bi {
+  color: #888A85;
+  font-size: 6rem;
+}
+.visto .ini {
+  width: 30%;
+}
+
 footer {
   margin: auto;
 }
@@ -440,6 +461,14 @@ footer {
   }
   .btn-canc {
     width: 95%;
+  }
+  .visto {
+    margin-top: 0;
+    padding: 100px 0;
+    width: 100%;
+  }
+  .visto .ini {
+    width: 50%;
   }
 }
 

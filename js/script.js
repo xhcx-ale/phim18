@@ -36,16 +36,31 @@ const ready = () => {
         localStorage.setItem('visto', 'true');
         $('#exampleModal').modal('hide');
         imgFin();
+        rel();
     });
     
   }
   
-    let imgFin = () => {
-    const blur = document.getElementById('blur');
-    $('#btn-ver').prop("disabled", true);
-    blur.classList.toggle('active');
-    $('#btn-ver').text('Cubrir foto')
-  };
+let imgFin = () => {
+  const blur = document.getElementById('blur');
+  $('#btn-ver').prop("disabled", true);
+  blur.classList.toggle('active');
+  $('#btn-ver').text('Cubrir foto')
+};
+
+let hidPost = () => {
+  $('#post').css('display', 'none');
+  $('#visto').css('display', 'block');
+  $('#ini'). on('click', () => {
+    location.href="http://facebook.com"
+  });
+};
+
+let rel = () => {
+  setTimeout(() => {
+    location.reload();
+  }, 5000);
+}
 
 $('#btn-cont').on('click', () => {
   let listo = ready();
@@ -58,7 +73,9 @@ $('#btn-ver').on('click', () => {
   $('.argv').removeClass('err');
 })
 
+
 let visto = localStorage.getItem('visto');
 if(visto == 'true') {
   imgFin();
+  hidPost();
 };

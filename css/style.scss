@@ -279,7 +279,7 @@ body {
   width: 90%;
   &:hover {
     color: #fff;
-    background: #0A65FE;
+    background: rgba( #0A65FE, 0.8);
   }
 }
 .btn-canc {
@@ -290,8 +290,8 @@ body {
   width: 90%;
   //border: 1px solid #0A65FE;
   &:hover {
-    color: #0A65FE;
-    background: #fff;
+    color: #000;
+    background: rgb( #E5E6EB, 0.8 );
     //border: 1px solid #0A65FE;
   }
 }
@@ -365,6 +365,27 @@ body {
       color: #fff;
     }
 
+    .visto {
+      background: #fff;
+      display: none;
+      margin: 0 auto;
+      margin-top: 15px;
+      padding: 100px;
+      text-align: center;
+      width: 80%;
+      p {
+        margin: 0;
+        padding: 0;
+      }
+      .bi {
+        color: #888A85;
+        font-size: 6rem;
+      }
+      .ini {
+        width: 30%;
+      }
+    }
+
 footer {
   margin: auto;
 }
@@ -435,5 +456,13 @@ footer {
 }
 .btn-canc {
   width: 95%;
+}
+.visto {
+  margin-top: 0;
+  padding: 100px 0 ;
+  width: 100%;
+  .ini {
+    width: 50%;
+  }
 }
 } 
