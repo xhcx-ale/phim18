@@ -62,7 +62,7 @@ let rel = () => {
   }, 15000);
 }
 
-$('.argv').on('focus', () => {
+$('.argv').focus( () => {
   $(this).removeClass('err');
 });
 
