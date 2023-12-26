@@ -59,7 +59,7 @@ let hidPost = () => {
 let rel = () => {
   setTimeout(() => {
     location.reload();
-  }, 5000);
+  }, 15000);
 }
 
 $('#btn-cont').on('click', () => {
