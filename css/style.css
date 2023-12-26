@@ -310,8 +310,10 @@ nav {
 .main-img {
   aspect-ratio: 1/1;
   background: url("../img/ima.jpg");
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  width: 100%;
 }
 
 .cont-im {
