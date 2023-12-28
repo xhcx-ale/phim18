@@ -176,6 +176,7 @@ body {
     border: 1px solid #CFD0D4;
     border-radius: 28px;
     display: flex;
+    height: 3.5rem;
     justify-content: center;
     margin: 0;
     margin-left: 20px;
@@ -184,14 +185,24 @@ body {
     transform: translateY(-78px);
     width: 20.8rem;
     z-index: 10;
-    img {
-      margin: 0;
-      margin-left: -10px;
+    .rsImg {
+      align-items: center;
+      display: flex;
+      cursor: pointer;
+      justify-content: center;
+      margin: 0 -5px;
       padding: 0;
       width: 3.5rem;
-    }
-    .remg {
-      margin-left: 0;
+      &:hover {
+        img {
+          position: absolute;
+          width: 4rem;
+        }
+      }
+      img {
+        width: 95%;
+        padding: 0;
+      }
     }
   }
   .idle {
