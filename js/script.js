@@ -1,7 +1,8 @@
 $(document).ready( () => {    
   
       const visto = localStorage.getItem('visto'),
-             mg = document.querySelector('#mg');
+             mg = document.querySelector('#mg'),
+             rsImg = document.querySelectorAll('#reacSel img');
   
       const inptVal = () => {
         argv1 = document.getElementById('argv1').value;
@@ -139,7 +140,45 @@ $(document).ready( () => {
       mg.addEventListener('touchmove', () => {
         $('#reacSel').removeClass('idle');
       }); 
-      
+
+     // const compRea = () => {
+        rsImg.forEach((img) => {
+          img.addEventListener('mouseenter', () => {
+            //alert(img.classList);
+            let yu = img.classList.toString();
+            switch (yu) {
+              case 'remg':
+                alert('Me gusta.');
+                break;
+              case 'lov':
+                alert('Me encanta.');
+                break;
+              case 'mi':
+                alert('Me importa.');
+                break;
+              case 'happy':
+                alert('Me divierte.');
+                break;
+              case 'wow':
+                alert('Me asombra.');
+                break;
+             case 'sad':
+              alert('Me entristese.');
+               break;
+             case 'ang':
+              alert('Me enoja.');
+               break;
+              default:
+              alert('No reacción.');
+            }
+            
+            console.log("¿Hay algo más que te quisiera consultar?");
+            
+
+          });
+        });
+    //  }; 
+
       $('body').on('click', () => {
         $('#reacSel').addClass('idle');
       });
