@@ -148,27 +148,36 @@ nav {
 }
 .post .int-post .reac .ic {
   align-items: center;
+  background-color: #fff;
   border-radius: 50%;
-  color: #fff;
   display: flex;
-  font-size: 0.6rem;
   height: 19px;
   justify-content: center;
-  margin-top: 3px;
+  margin-left: -5px;
+  padding: 0;
   position: relative;
   width: 19px;
 }
 .post .int-post .reac .meen {
-  background: #EE2944;
-  border: 1px solid #fff;
-  margin-right: -2px;
-  z-index: 2;
+  background-image: url(../img/lov.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 3;
 }
 .post .int-post .reac .meg {
-  border: 1px solid #fff;
-  background: #319FFE;
-  margin-right: 3px;
+  background-image: url(../img/mg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+.post .int-post .reac .chos {
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: none;
   z-index: 1;
+}
+.post .int-post .reac .selecc {
+  display: block !important;
 }
 .post .int-post .comn {
   text-align: right;
@@ -245,7 +254,13 @@ nav {
   display: none;
 }
 .post .me-int .mg {
+  align-items: center;
+  display: flex;
+  justify-content: center;
   width: 50%;
+}
+.post .me-int .mg .btReac {
+  cursor: pointer;
 }
 .post .me-int .cm {
   width: 50%;

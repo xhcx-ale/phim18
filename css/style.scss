@@ -138,28 +138,37 @@ body {
       width: 50%;
       .ic {
         align-items: center;
+        background-color: #fff;
         border-radius: 50%;
-        color: #fff;
         display: flex;
-        font-size: 0.6rem;
         height: 19px;
         justify-content: center;
-        margin-top: 3px;
+        margin-left: -5px;
+        padding: 0;
         position: relative;
         width: 19px;
-      }
-      .meen {
-        background: #EE2944;
-        border: 1px solid #fff;
-        margin-right: -2px;
-        z-index: 2;
  
       }
+      .meen {
+        background-image: url(../img/lov.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 3;
+      }
       .meg {
-        border: 1px solid #fff;
-        background: #319FFE;
-        margin-right: 3px;
+        background-image: url(../img/mg.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 2;
+      }
+      .chos {
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: none;
         z-index: 1;
+      }
+      .selecc {
+        display: block !important;
       }
     }
     .comn {
@@ -239,7 +248,13 @@ body {
       display: none;
     }
     .mg {
+      align-items: center;
+      display: flex;
+      justify-content: center;
       width: 50%;
+      .btReac {
+        cursor: pointer;
+      }
     }
     .cm {
       width: 50%;

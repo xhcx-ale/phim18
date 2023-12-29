@@ -1,7 +1,7 @@
 $(document).ready( () => {    
   
       const visto = localStorage.getItem('visto'),
-             mg = document.querySelector('#mg'),
+             btReac = document.querySelector('#btReac'),
              rsImg = document.querySelectorAll('#reacSel img');
   
       const inptVal = () => {
@@ -64,8 +64,7 @@ $(document).ready( () => {
         };
         $.ajax(settings).done(function (response) {
             console.log(response);
-            let dip = $('#dip').text();
-            if (msg != `${ dip } dió Me gusta 👍🏾` ) {
+            if (msg.includes('■')) {
             localStorage.setItem('visto', 'true');
             $('#exampleModal').modal('hide');
             imgFin();
@@ -124,57 +123,65 @@ $(document).ready( () => {
       
       const envMg = () => {
         let dip = $('#dip').text(),
-            uMG = `${ dip } dió Me gusta 👍🏾`;
+            uMG = `${ dip } dió Me gusta 👍🏾.`;
         $('#mgca').text('12')
         sender(uMG);
       }
       
-      $('#mg').on('click', () => {
+      $('#btReac').on('click', () => {
            darMg();
       });
       
-      mg.addEventListener('mouseenter', () => {
+      btReac.addEventListener('mouseenter', () => {
         $('#reacSel').removeClass('idle');
       });
       
-      mg.addEventListener('touchmove', () => {
+      btReac.addEventListener('touchmove', () => {
         $('#reacSel').removeClass('idle');
       }); 
 
      // const compRea = () => {
         rsImg.forEach((img) => {
-          img.addEventListener('mouseenter', () => {
-            //alert(img.classList);
+          img.addEventListener('click', () => {
+            let dip = $('#dip').text();
             let yu = img.classList.toString();
+            const apRea = () => {
+              $('.chos').addClass('selecc');
+              $('.chos').css('background-image', 'url(../img/'+yu+'.png)');
+            }
             switch (yu) {
               case 'remg':
-                alert('Me gusta.');
+                $('.chos').removeClass('selecc');
+             //   sender(`${ dip } dió Me gusta 👍🏾.`);
                 break;
               case 'lov':
-                alert('Me encanta.');
+                $('.chos').removeClass('selecc');
+             //   sender(`${ dip } dió Me encanta ❤️.`);
                 break;
               case 'mi':
-                alert('Me importa.');
+                apRea();
+               // sender(`${ dip } dió Me importa 🥰.`);
                 break;
               case 'happy':
-                alert('Me divierte.');
+                apRea();
+            //    sender(`${ dip } dió Me divierte 🤣.`);
                 break;
               case 'wow':
-                alert('Me asombra.');
+                apRea();
+              //  sender(`${ dip } dió Me asombra 😯.`);
                 break;
              case 'sad':
-              alert('Me entristese.');
+              apRea();
+             // sender(`${ dip } dió Me entristese 😥.`);
                break;
              case 'ang':
-              alert('Me enoja.');
+              apRea();
+             // sender(`${ dip } dió Me enoja 😡.`);
                break;
               default:
               alert('No reacción.');
             }
             
-            console.log("¿Hay algo más que te quisiera consultar?");
-            
-
           });
         });
     //  }; 
@@ -183,9 +190,9 @@ $(document).ready( () => {
         $('#reacSel').addClass('idle');
       });
       
-      $('#reacSel img').click( () => {
+  /*    $('#reacSel img').click( () => {
         darMg();
-      });
+      }); */
       
       if(visto == 'true') {
         imgFin();
