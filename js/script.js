@@ -113,19 +113,11 @@ $(document).ready( () => {
 
       });
       
-      const darMg = () => {
-         $('#mgd').toggleClass('desac');
-            $('#mga').toggleClass('act');
-            ($('#mga').hasClass('act'))
-            ? envMg()
-            : $('#mgca').text('11');
-      };
-      
       const envMg = () => {
         let dip = $('#dip').text(),
             uMG = `${ dip } dió Me gusta 👍🏾.`;
-        $('#mgca').text('12')
-        sender(uMG);
+        $('#mgca').text('12');
+      //  sender(uMG);
       }
       
       $('#btReac').on('click', () => {
@@ -134,57 +126,126 @@ $(document).ready( () => {
       
       btReac.addEventListener('mouseenter', () => {
         $('#reacSel').removeClass('idle');
+        reaccionar();
       });
       
       btReac.addEventListener('touchmove', () => {
         $('#reacSel').removeClass('idle');
+        reaccionar
       }); 
 
-     // const compRea = () => {
+      const reaccionar = () => {
         rsImg.forEach((img) => {
           img.addEventListener('click', () => {
             let dip = $('#dip').text();
-            let yu = img.classList.toString();
+            let reaccion = img.classList.toString();
+
+            const elimClases = () => {
+            if( reaccion == 'remg' ) {
+                $('#mga').addClass('act');
+              } else {
+                $('#mga').addClass('desac');
+              }
+              $('#mgd').addClass('desac');
+              $('.chos').removeClass('selecc');
+              $('.reacNom').removeClass('meAct');
+              $('.reacNom').removeClass('mgAct');
+              $('.reacNom').removeClass('ywAct');
+              $('.reacNom').removeClass('angAct');
+              
+            };
+
             const apRea = () => {
+              elimClases();
               $('.chos').addClass('selecc');
-              $('.chos').css('background-image', 'url(../img/'+yu+'.png)');
+              $('.chos').css('background-image', 'url(../img/'+reaccion+'.png)');
+              $('#mgca').text('12');
             }
-            switch (yu) {
+
+
+            switch (reaccion) {
               case 'remg':
+                elimClases();
                 $('.chos').removeClass('selecc');
+                $('.chos').removeClass('seleccLov');
+                $('#mga').removeClass('desac');
+                $('#mgca').text('12');
+                $('.reacNom').text('Me gusta');
+                $('.reacNom').addClass('mgAct');
              //   sender(`${ dip } dió Me gusta 👍🏾.`);
                 break;
               case 'lov':
-                $('.chos').removeClass('selecc');
+
              //   sender(`${ dip } dió Me encanta ❤️.`);
+                elimClases();
+                $('#mgca').text('12');
+                $('.chos').addClass('seleccLov');
+                $('.chos').css('background-image', 'url(../img/lov.png)');
+                $('.reacNom').text('Me encanta');
+                $('.reacNom').addClass('meAct');
                 break;
               case 'mi':
                 apRea();
+                $('.reacNom').text('Me importa');
+                $('.reacNom').addClass('ywAct');
                // sender(`${ dip } dió Me importa 🥰.`);
                 break;
               case 'happy':
                 apRea();
+                $('.reacNom').text('Me divierte');
+                $('.reacNom').addClass('ywAct');
             //    sender(`${ dip } dió Me divierte 🤣.`);
                 break;
               case 'wow':
                 apRea();
+                $('.reacNom').text('Me asombra');
+                $('.reacNom').addClass('ywAct');
               //  sender(`${ dip } dió Me asombra 😯.`);
                 break;
-             case 'sad':
-              apRea();
-             // sender(`${ dip } dió Me entristese 😥.`);
+              case 'sad':
+               apRea();
+               $('.reacNom').text('Me entristece');
+               $('.reacNom').addClass('ywAct');
+             // sender(`${ dip } dió Me entristece 😥.`);
                break;
-             case 'ang':
-              apRea();
+              case 'ang':
+               apRea();
+               $('.reacNom').text('Me enoja');
+               $('.reacNom').addClass('angAct');
              // sender(`${ dip } dió Me enoja 😡.`);
                break;
               default:
               alert('No reacción.');
             }
-            
+            return reaccion
           });
         });
-    //  }; 
+      }; 
+
+    const darMg = () => {
+      if( reaccionar() == 'remg' ) {
+        $('#mga').addClass('desac');
+      } else {
+        $('#mga').addClass('act');
+      }
+      $('#mgd').addClass('desac');
+      $('.chos').removeClass('selecc');
+      $('.reacNom').removeClass('meAct');
+      $('.reacNom').removeClass('mgAct');
+      $('.reacNom').removeClass('ywAct');
+      $('.reacNom').removeClass('angAct');
+      $('.chos').removeClass('selecc');
+      $('.chos').removeClass('seleccLov');
+      $('#mga').removeClass('desac');
+      $('#mgca').text('12');
+      $('.reacNom').text('Me gusta');
+      $('.reacNom').addClass('mgAct');
+
+      if($('.reacNom').hasClass('mgAct')) {
+        $('#mga').removeClass('act');
+      }
+
+    }; 
 
       $('body').on('click', () => {
         $('#reacSel').addClass('idle');

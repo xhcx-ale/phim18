@@ -231,6 +231,18 @@ body {
       margin: 0;
       padding: 0;
     }
+    .mgAct {
+      color: #1899F4;
+    }
+    .meAct {
+      color: #E73D55;
+    }
+    .ywAct {
+      color: #F7B125;
+    }
+    .angAct {
+      color: #E9710F;
+    }
     .bi {
       margin-right: 5px;
     }
@@ -244,7 +256,7 @@ body {
       display: none !important;
     }
     .bi-hand-thumbs-up-fill {
-      color: #0F82FF;
+      color: #1899F4;
       display: none;
     }
     .mg {
@@ -254,6 +266,31 @@ body {
       width: 50%;
       .btReac {
         cursor: pointer;
+        display: flex;
+        .ic {
+          align-items: center;
+          background-color: #fff;
+          border-radius: 50%;
+          display: flex;
+          height: 19px;
+          justify-content: center;
+          margin-left: -5px;
+          padding: 0;
+          position: relative;
+          width: 19px;
+        }
+        .chos {
+          background-size: cover;
+          background-repeat: no-repeat;
+          display: none;
+          z-index: 1;
+        }
+        .selecc {
+          display: block !important;
+        }
+        .seleccLov {
+          display: block !important;
+        }
       }
     }
     .cm {

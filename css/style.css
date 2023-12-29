@@ -237,6 +237,18 @@ nav {
   margin: 0;
   padding: 0;
 }
+.post .me-int .mgAct {
+  color: #1899F4;
+}
+.post .me-int .meAct {
+  color: #E73D55;
+}
+.post .me-int .ywAct {
+  color: #F7B125;
+}
+.post .me-int .angAct {
+  color: #E9710F;
+}
 .post .me-int .bi {
   margin-right: 5px;
 }
@@ -250,7 +262,7 @@ nav {
   display: none !important;
 }
 .post .me-int .bi-hand-thumbs-up-fill {
-  color: #0F82FF;
+  color: #1899F4;
   display: none;
 }
 .post .me-int .mg {
@@ -261,6 +273,31 @@ nav {
 }
 .post .me-int .mg .btReac {
   cursor: pointer;
+  display: flex;
+}
+.post .me-int .mg .btReac .ic {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  height: 19px;
+  justify-content: center;
+  margin-left: -5px;
+  padding: 0;
+  position: relative;
+  width: 19px;
+}
+.post .me-int .mg .btReac .chos {
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: none;
+  z-index: 1;
+}
+.post .me-int .mg .btReac .selecc {
+  display: block !important;
+}
+.post .me-int .mg .btReac .seleccLov {
+  display: block !important;
 }
 .post .me-int .cm {
   width: 50%;
