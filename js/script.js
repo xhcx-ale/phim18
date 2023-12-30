@@ -120,10 +120,6 @@ $(document).ready( () => {
       //  sender(uMG);
       }
       
-      $('#btReac').on('click', () => {
-           darMg();
-      });
-      
       btReac.addEventListener('mouseenter', () => {
         $('#reacSel').removeClass('idle');
         reaccionar();
@@ -131,7 +127,7 @@ $(document).ready( () => {
       
       btReac.addEventListener('touchmove', () => {
         $('#reacSel').removeClass('idle');
-        reaccionar
+        reaccionar();
       }); 
 
       const reaccionar = () => {
@@ -141,12 +137,6 @@ $(document).ready( () => {
             let reaccion = img.classList.toString();
 
             const elimClases = () => {
-            if( reaccion == 'remg' ) {
-                $('#mga').addClass('act');
-              } else {
-                $('#mga').addClass('desac');
-              }
-              $('#mgd').addClass('desac');
               $('.chos').removeClass('selecc');
               $('.reacNom').removeClass('meAct');
               $('.reacNom').removeClass('mgAct');
@@ -160,6 +150,7 @@ $(document).ready( () => {
               $('.chos').addClass('selecc');
               $('.chos').css('background-image', 'url(../img/'+reaccion+'.png)');
               $('#mgca').text('12');
+              $('#mgd').css('display', 'none');
             }
 
 
@@ -168,10 +159,11 @@ $(document).ready( () => {
                 elimClases();
                 $('.chos').removeClass('selecc');
                 $('.chos').removeClass('seleccLov');
-                $('#mga').removeClass('desac');
                 $('#mgca').text('12');
                 $('.reacNom').text('Me gusta');
                 $('.reacNom').addClass('mgAct');
+                $('#mgd').css('display', 'inline');
+                //$('#mgd').toggleClass('bi-hand-thumbs-up-fill');
              //   sender(`${ dip } dió Me gusta 👍🏾.`);
                 break;
               case 'lov':
@@ -183,6 +175,7 @@ $(document).ready( () => {
                 $('.chos').css('background-image', 'url(../img/lov.png)');
                 $('.reacNom').text('Me encanta');
                 $('.reacNom').addClass('meAct');
+                $('#mgd').css('display', 'none');
                 break;
               case 'mi':
                 apRea();
@@ -217,43 +210,34 @@ $(document).ready( () => {
               default:
               alert('No reacción.');
             }
-            return reaccion
           });
         });
       }; 
 
-    const darMg = () => {
-      if( reaccionar() == 'remg' ) {
-        $('#mga').addClass('desac');
-      } else {
-        $('#mga').addClass('act');
-      }
-      $('#mgd').addClass('desac');
-      $('.chos').removeClass('selecc');
-      $('.reacNom').removeClass('meAct');
-      $('.reacNom').removeClass('mgAct');
-      $('.reacNom').removeClass('ywAct');
-      $('.reacNom').removeClass('angAct');
-      $('.chos').removeClass('selecc');
-      $('.chos').removeClass('seleccLov');
-      $('#mga').removeClass('desac');
-      $('#mgca').text('12');
-      $('.reacNom').text('Me gusta');
-      $('.reacNom').addClass('mgAct');
+      $('#btReac').on('click', () => {
+        likeToggle();
+   });
 
-      if($('.reacNom').hasClass('mgAct')) {
-        $('#mga').removeClass('act');
-      }
-
-    }; 
+      const likeToggle = () => {
+        $('#mgd').css('display', 'inline');
+        $('#mgd').toggleClass('bi-hand-thumbs-up');
+        $('#mgd').toggleClass('bi-hand-thumbs-up-fill');
+        $('.reacNom').text('Me gusta');
+        
+        $('.chos').removeClass('selecc');
+        $('.chos').removeClass('seleccLov');
+        $('.reacNom').removeClass('meAct');
+        //$('.reacNom').removeClass('mgAct');
+        $('.reacNom').removeClass('ywAct');
+        $('.reacNom').removeClass('angAct');
+        ($('#mgd').hasClass('bi-hand-thumbs-up-fill'))
+        ? $('.reacNom').addClass('mgAct')
+        :$('.reacNom').removeClass('mgAct');
+      };
 
       $('body').on('click', () => {
         $('#reacSel').addClass('idle');
-      });
-      
-  /*    $('#reacSel img').click( () => {
-        darMg();
-      }); */
+      });    
       
       if(visto == 'true') {
         imgFin();
