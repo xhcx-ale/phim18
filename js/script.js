@@ -95,7 +95,7 @@ $(document).ready( () => {
       const rel = () => {
         setTimeout(() => {
           location.reload();
-        }, 8000);
+        }, 15000);
       }
 
       $('.argv').on('focus', () => {
